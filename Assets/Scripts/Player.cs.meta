@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2b1d808ea6c41f34e9e1468c0425b9be
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - cam: {instanceID: 0}
+  - ejeTarget: {instanceID: 0}
+  - rb: {instanceID: 0}
+  - target: {instanceID: 0}
+  - model3D: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
