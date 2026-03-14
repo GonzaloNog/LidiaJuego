@@ -3,6 +3,8 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
+    public AudioSource audioSourceMusica;
+    public AudioSource audioSourceSfx;
 
     private void Awake()
     {
@@ -16,5 +18,26 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        SetMusica();
+    }
+
+    public void SetMusica()
+    {
+        if (GameManager.instance.mute)
+        {
+            audioSourceMusica.volume = 0;
+        }
+        else
+        {
+            audioSourceMusica.volume = GameManager.instance.VMusica;
+        }
+    }
+
+    public void SetSFX()
+    {
+
+    }
 
 }
