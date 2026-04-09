@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public float VMusica;
     public float VSfx;
     public bool mute;
+    public float mouseSensitivity = 100;
 
     private void Awake()
     {
