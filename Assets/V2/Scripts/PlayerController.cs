@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
+    public float speedSprint = 10f;
     public float speedRotation = 10f;
     public float jumpForce = 10;
 
@@ -42,6 +43,10 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+
+        
+
         Vector3 velocity = movement * speed;
         Vector3 newVelocity = new Vector3(velocity.x, rb.linearVelocity.y, velocity.z);
 
