@@ -7,6 +7,8 @@ public class ThisPersonCamera : MonoBehaviour
 
     float xRotation = 0f;
     float yRotation = 0f;
+
+    private bool combate = false;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -15,19 +17,26 @@ public class ThisPersonCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseY = Input.GetAxis("Mouse X") * GameManager.instance.mouseSensitivity * Time.deltaTime;
-        float mouseX = Input.GetAxis("Mouse Y") * GameManager.instance.mouseSensitivity * Time.deltaTime;
+        if (!combate)
+        {
+            float mouseY = Input.GetAxis("Mouse X") * GameManager.instance.mouseSensitivity * Time.deltaTime;
+            float mouseX = Input.GetAxis("Mouse Y") * GameManager.instance.mouseSensitivity * Time.deltaTime;
 
-        xRotation += mouseX;
-        yRotation += mouseY;
-        
-        xRotation = Mathf.Clamp(xRotation, 0f, 60f);
+            xRotation += mouseX;
+            yRotation += mouseY;
 
-        Quaternion rotation = Quaternion.Euler(xRotation, yRotation, 0f);
+            xRotation = Mathf.Clamp(xRotation, 0f, 60f);
 
-        Vector3 position = target.position - (rotation * Vector3.forward * distance);
-        
-        transform.position = position;
-        transform.LookAt(target.position + Vector3.up * 1.5f);
+            Quaternion rotation = Quaternion.Euler(xRotation, yRotation, 0f);
+
+            Vector3 position = target.position - (rotation * Vector3.forward * distance);
+
+            transform.position = position;
+            transform.LookAt(target.position + Vector3.up * 1.5f);
+        }  
+    }
+    public void setCombate(bool _combate)
+    {
+        combate = _combate;
     }
 }
